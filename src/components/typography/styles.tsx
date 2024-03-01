@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TypographyProps } from "./typography";
 
-const settings = {
+export const typographySettings = {
   display: {
     fontWeight: "bold",
     desktop: {
@@ -99,16 +99,16 @@ export const StyledTypography = styled.div<Pick<TypographyProps, "size">>`
     if (size) {
       return `
           @media only screen and (max-width: 600px) {
-            font-size: ${settings[size].mobile.fontSize};
-            line-height: ${settings[size].mobile.line};
-            letter-spacing: ${settings[size].mobile.letterSpacing};
+            font-size: ${typographySettings[size].mobile.fontSize};
+            line-height: ${typographySettings[size].mobile.line};
+            letter-spacing: ${typographySettings[size].mobile.letterSpacing};
           }
 
           @media only screen and (min-width: 601px) {
-            font-size: ${settings[size].desktop.fontSize};
-            line-height: ${settings[size].desktop.line};
+            font-size: ${typographySettings[size].desktop.fontSize};
+            line-height: ${typographySettings[size].desktop.line};
             // eslint-disable-next-line no-extra-boolean-cast
-            letter-spacing: ${settings[size]?.desktop.letterSpacing};
+            letter-spacing: ${typographySettings[size]?.desktop.letterSpacing};
           }
         `;
     }

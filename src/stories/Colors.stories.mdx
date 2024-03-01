@@ -1,0 +1,32 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/addon-docs'
+import { TabsState } from '@storybook/components'
+import { theme } from "../themeStyles";
+import { Subtitle } from '@storybook/blocks';
+
+<Meta title="Design System/Colors" />
+
+export const getColors = () => {
+  return Object.keys(theme.colors).map((key) => ({
+    name: key,
+    value: theme.colors[key],
+  }));
+}
+
+
+<div>
+    <h1>Palheta de cores de Textos</h1>
+</div>
+
+<div>
+  <ColorPalette>
+    {getColors().map(({ name, value }) => (
+        <ColorItem
+          key={name}
+          title={`theme.colors.${name}`}
+          subtitle={name}
+          colors={[value]}
+        />
+      )
+    )}
+  </ColorPalette>
+</div>
