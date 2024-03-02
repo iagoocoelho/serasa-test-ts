@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# Start Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm run dev
 
-Currently, two official plugins are available:
+# Start Storybook
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm run storybook
 
-## Expanding the ESLint configuration
+# Resposta exercicio 3
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Notei que utilizam nextJs, css in Js, Tag Manager.
 
-- Configure the top-level `parserOptions` property like this:
+Falta melhorar a navegação via TAB, alguns componentes e tags estão com css outline none e/ou com cor sem destaque. E a própria cor do outline é um rosa claro que não da destaque na visualização.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Em testes com lighthouse, para desktop, não enxerguei muitos ajustes a serem feitos visto a nota e relatório.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Já para mobile, o teste aponta uma nota médiana de 79, e pelo resultado demonstra-se que pode ser reduzido o tamnho do build talvez parcionando com incluindo lazy load em alguma ponta, imagens que podem ser redimensionadas para um tamanho menor.
