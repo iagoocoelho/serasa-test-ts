@@ -4,16 +4,28 @@ const GlobalStyle = createGlobalStyle`
  * {
     margin: 0;
     padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    main {
+      margin: 0 auto;
+      max-width: 960px;
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .relative {
+      position: relative;
+    }
 
     /* Extra small devices (phones, 600px and down) */
-    @media only screen and (max-width: 600px) {
-
-        .display {
-            font-size: 2.5rem;
-        }
-    }
+    @media only screen and (max-width: 600px) {}
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 601px) {

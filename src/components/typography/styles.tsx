@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { TypographyProps } from "./typography";
+import { ITypography } from "./typography";
 
 export const typographySettings = {
   display: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "3rem",
       line: "52px",
@@ -15,8 +15,9 @@ export const typographySettings = {
       letterSpacing: "-1.2px",
     },
   },
+
   headingL: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "2.5rem",
       line: "44px",
@@ -28,8 +29,9 @@ export const typographySettings = {
       letterSpacing: "-1px",
     },
   },
+
   headingM: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "2rem",
       line: "36px",
@@ -41,8 +43,9 @@ export const typographySettings = {
       letterSpacing: "-0.8px",
     },
   },
+
   headingS: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "1.5rem",
       line: "28px",
@@ -54,8 +57,9 @@ export const typographySettings = {
       letterSpacing: "-0.6px",
     },
   },
+
   headingXS: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "1.5rem",
       line: "24px",
@@ -67,8 +71,9 @@ export const typographySettings = {
       letterSpacing: "0px",
     },
   },
+
   subheading: {
-    fontWeight: "bold",
+    fontWeight: 700,
     desktop: {
       fontSize: "1rem",
       line: "20px",
@@ -80,7 +85,9 @@ export const typographySettings = {
       letterSpacing: "0px",
     },
   },
+
   bodyM: {
+    fontWeight: 400,
     desktop: {
       fontSize: "1rem",
       line: "24px",
@@ -94,23 +101,54 @@ export const typographySettings = {
   },
 };
 
-export const StyledTypography = styled.div<Pick<TypographyProps, "size">>`
+export const StyledTypography = styled.div<
+  Pick<ITypography, "size" | "$centerText" | "$spacingY">
+>`
   ${({ size }) => {
     if (size) {
       return `
           @media only screen and (max-width: 600px) {
+            font-weight: ${typographySettings[size].fontWeight};
             font-size: ${typographySettings[size].mobile.fontSize};
             line-height: ${typographySettings[size].mobile.line};
             letter-spacing: ${typographySettings[size].mobile.letterSpacing};
+
+            
+            > * {
+              font-weight: ${typographySettings[size].fontWeight};
+              font-size: ${typographySettings[size].desktop.fontSize};
+              line-height: ${typographySettings[size].desktop.line};
+              letter-spacing: ${typographySettings[size]?.desktop.letterSpacing};
+            }
           }
 
           @media only screen and (min-width: 601px) {
+            font-weight: ${typographySettings[size].fontWeight};
             font-size: ${typographySettings[size].desktop.fontSize};
             line-height: ${typographySettings[size].desktop.line};
-            // eslint-disable-next-line no-extra-boolean-cast
             letter-spacing: ${typographySettings[size]?.desktop.letterSpacing};
+
+            > * {
+              font-weight: ${typographySettings[size].fontWeight};
+              font-size: ${typographySettings[size].desktop.fontSize};
+              line-height: ${typographySettings[size].desktop.line};
+              letter-spacing: ${typographySettings[size]?.desktop.letterSpacing};
+            }
           }
         `;
+    }
+  }}
+
+
+  ${({ $centerText }) => {
+    if ($centerText) {
+      return `text-align: center;`;
+    }
+  }}
+
+  ${({ $spacingY, theme }) => {
+    if ($spacingY) {
+      return `margin: ${theme.spacing[$spacingY]} 0;`;
     }
   }}
 `;

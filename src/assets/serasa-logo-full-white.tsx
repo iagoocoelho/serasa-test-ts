@@ -11,9 +11,9 @@ const SerasaLogoWhite = ({ width = "512px", height = "240px" }) => {
         <g
           id="serasa-xlg"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g id="serasa-marca" transform="translate(-1.000000, 11.000000)">
             <path

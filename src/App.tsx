@@ -1,33 +1,19 @@
-import Typography from "./components/typography/typography"
+import SectionContainer from "./components/container/sectionContainer";
+import ToastProvider from "./context/toastContext";
+import FeedbackForm from "./pages/feedback/feedbackForm";
 
 const App = () => {
   return (
-    <>
-      <div>
-        <Typography size={"display"}>
-          teste 2
-        </Typography>
-        <Typography size={"headingL"}>
-          teste 2
-        </Typography>
-        <Typography size={"headingM"}>
-          teste 2
-        </Typography>
-        <Typography size={"headingS"}>
-          teste 2
-        </Typography>
-        <Typography size={"headingXS"}>
-          teste 2
-        </Typography>
-        <Typography size={"subheading"}>
-          teste 2
-        </Typography>
-        <Typography size={"bodyM"}>
-          teste 2
-        </Typography>
-      </div>
-    </>
-  )
-}
+    <main>
+      <SectionContainer>
+        <div className="relative">
+          <ToastProvider>
+            <FeedbackForm />
+          </ToastProvider>
+        </div>
+      </SectionContainer>
+    </main>
+  );
+};
 
-export default App
+export default App;
