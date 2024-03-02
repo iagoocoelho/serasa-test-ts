@@ -79,7 +79,11 @@ const FeedbackForm = () => {
           value={data.commentary}
         />
 
-        <Button onClick={onSubmit} label="Enviar avaliação" />
+        <Button
+          onClick={onSubmit}
+          label="Enviar avaliação"
+          disabled={!data.name && data.rate != 0}
+        />
       </form>
     </StyledFeedbackForm>
   );
