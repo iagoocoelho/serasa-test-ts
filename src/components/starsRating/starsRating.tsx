@@ -37,6 +37,9 @@ const StarsRating = ({ setRate, rate }: IStarsRating) => {
             }}
           >
             <span className="star">&#9733;</span>
+            <span className="aria-label-star">
+              {`${index}`} {index >= 2 ? "estrelas" : "estrela"}
+            </span>
           </button>
         );
       })}

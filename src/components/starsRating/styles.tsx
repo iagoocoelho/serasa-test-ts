@@ -16,6 +16,11 @@ export const StyledStarsRating = styled.div`
 
     span {
       font-size: 40px;
+
+      &.aria-label-star {
+        color: transparent;
+        font-size: 0;
+      }
     }
 
     &.on {
